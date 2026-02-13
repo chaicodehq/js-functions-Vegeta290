@@ -40,11 +40,21 @@
  *   // => { totalCustomers: 3, totalRevenue: 7200, mealBreakdown: { veg: 2, nonveg: 1 } }
  */
 export function createTiffinPlan({ name, mealType = "veg", days = 30 } = {}) {
+  const prices = {veg: 80,nonveg: 120,jain: 90}
   // Your code here
+  if (!prices[mealType]) return null;
+  if (!name || name.trim() === "") return null;
+
+  const dailyRate = prices[mealType];
+  const totalCost = dailyRate*days;
+  return{name,mealType,days,dailyRate,totalCost};
 }
 
 export function combinePlans(...plans) {
   // Your code here
+  if(plans.length===0) return null;
+  const totalCustomers = plans.length
+  const totalRevenue = totalCustomers*plans.length;
 }
 
 export function applyAddons(plan, ...addons) {

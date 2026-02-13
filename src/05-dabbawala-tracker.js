@@ -50,4 +50,11 @@
  */
 export function createDabbawala(name, area) {
   // Your code here
+  let deliveries = [];
+  let nextId = 0;
+  function addDelivery(from,to){
+    if(from===null || to===null || from.trim()==="" || to.trim()==="") return -1;
+    id++;
+    return{id,from,to,status:"pending"};
+  }
 }
